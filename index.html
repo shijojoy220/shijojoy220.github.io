@@ -1,35 +1,127 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Coming Soon | Launching</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
-body,h1 {font-family: "Raleway", sans-serif}
+body, h1, h2, h3 {font-family: "Raleway", sans-serif}
 body, html {height: 100%}
+
 .bgimg {
-  background-image: url('./webs.png');
+  /* Using a high-quality placeholder image. Replace with your './webs.png' if preferred */
+  background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop');
   min-height: 100%;
   background-position: center;
   background-size: cover;
+  position: relative;
+}
+
+/* Adds a dark overlay so text is readable on any image */
+.overlay {
+    background-color: rgba(0,0,0,0.6); 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.countdown-box {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    min-width: 80px;
 }
 </style>
+
 <body>
 
-<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
- <!--  <div class="w3-display-topleft w3-padding-large w3-xlarge">
-    Logo
-  </div> -->
-  <div class="w3-display-middle">
-    <h1 class="w3-jumbo w3-animate-top">COMING SOON</h1>
-    <hr class="w3-border-grey" style="margin:auto;width:80%">
-    <p class="w3-large w3-center">**** days left</p>
+<div class="bgimg w3-text-white">
+  <div class="overlay">
+    
+    <div class="w3-display-topleft w3-padding-large w3-xlarge">
+      <i class="fa fa-cube"></i> BrandName
+    </div>
+
+    <div class="w3-display-middle w3-center">
+      <h1 class="w3-jumbo w3-animate-top" style="font-weight:bold;">COMING SOON</h1>
+      <hr class="w3-border-grey" style="margin:auto;width:40%">
+      
+      <p class="w3-large w3-center">We are crafting something amazing.</p>
+      
+      <div class="w3-padding-large w3-xlarge">
+        <div class="countdown-box"><span id="days">00</span><br><span class="w3-small">Days</span></div>
+        <div class="countdown-box"><span id="hours">00</span><br><span class="w3-small">Hours</span></div>
+        <div class="countdown-box"><span id="minutes">00</span><br><span class="w3-small">Mins</span></div>
+        <div class="countdown-box"><span id="seconds">00</span><br><span class="w3-small">Secs</span></div>
+      </div>
+
+      <button onclick="document.getElementById('notifyModal').style.display='block'" 
+      class="w3-button w3-white w3-round w3-opacity w3-hover-opacity-off w3-large w3-margin-top">
+        Notify Me
+      </button>
+    </div>
+
+    <div class="w3-display-bottomleft w3-padding-large">
+      <a href="#" class="w3-hover-text-grey"><i class="fa fa-facebook-official w3-xlarge w3-margin-right"></i></a>
+      <a href="#" class="w3-hover-text-grey"><i class="fa fa-instagram w3-xlarge w3-margin-right"></i></a>
+      <a href="#" class="w3-hover-text-grey"><i class="fa fa-twitter w3-xlarge"></i></a>
+    </div>
   </div>
-  <!-- <div class="w3-display-bottomleft w3-padding-large">
-    Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
-  </div> -->
 </div>
+
+<div id="notifyModal" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom w3-card-4 w3-round-large" style="max-width:500px">
+    <header class="w3-container w3-center w3-padding-32 w3-teal w3-round-top-large"> 
+      <span onclick="document.getElementById('notifyModal').style.display='none'" 
+      class="w3-button w3-display-topright w3-hover-red w3-round-top-right">&times;</span>
+      <h2 class="w3-wide"><i class="fa fa-envelope w3-margin-right"></i>NEWSLETTER</h2>
+    </header>
+    <div class="w3-container w3-padding-32">
+      <p>Join our mailing list to receive updates on our launch!</p>
+      <input class="w3-input w3-border w3-round" type="text" placeholder="Enter e-mail">
+      <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-round" 
+      onclick="document.getElementById('notifyModal').style.display='none'">SUBSCRIBE</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// --- CONFIGURATION ---
+// Set the date we're counting down to
+var countDownDate = new Date("Dec 31, 2025 00:00:00").getTime();
+
+// --- LOGIC ---
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  // Time calculations
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Output the result in the elements
+  document.getElementById("days").innerHTML = days;
+  document.getElementById("hours").innerHTML = hours;
+  document.getElementById("minutes").innerHTML = minutes;
+  document.getElementById("seconds").innerHTML = seconds;
+
+  // If the count down is over, write text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("days").innerHTML = "00";
+    // Optional: Replace the timer with a "We are Live!" message
+  }
+}, 1000);
+</script>
 
 </body>
 </html>
