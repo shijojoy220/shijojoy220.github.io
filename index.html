@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-<title>Coming Soon | Launching</title>
+<head>
+<title>Your Name | Cover Letter & Profile</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -8,71 +9,97 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
-body, h1, h2, h3 {font-family: "Raleway", sans-serif}
-body, html {height: 100%}
+body, h1, h2, h3, h4 {font-family: "Raleway", sans-serif}
+body, html {height: 100%; margin: 0;}
 
 .bgimg {
-  /* Using a high-quality placeholder image. Replace with your './webs.png' if preferred */
-  background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop');
+  background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop');
   min-height: 100%;
   background-position: center;
   background-size: cover;
   position: relative;
 }
 
-/* Adds a dark overlay so text is readable on any image */
 .overlay {
-    background-color: rgba(0,0,0,0.6); 
+    background-color: rgba(0,0,0,0.7); 
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.countdown-box {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px;
-    background: rgba(255,255,255,0.1);
+.content-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 90%;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.profile-link {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: white;
+    color: #333;
+    text-decoration: none;
     border-radius: 5px;
-    min-width: 80px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.profile-link:hover {
+    background: #f1f1f1;
+    transform: scale(1.02);
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-bottom: 20px;
 }
 </style>
+</head>
 
 <body>
 
 <div class="bgimg w3-text-white">
   <div class="overlay">
     
-    <div class="w3-display-topleft w3-padding-large w3-xlarge">
-      <i class="fa fa-cube"></i> BrandName
-    </div>
+    <div class="w3-center content-card w3-animate-opacity">
+      <i class="fa fa-user-circle-o w3-jumbo"></i>
 
-    <div class="w3-display-middle w3-center">
-      <h1 class="w3-jumbo w3-animate-top" style="font-weight:bold;">COMING SOON</h1>
+      <h1 class="w3-xxlarge"><b>Hi, I'm Shijo Joy</b></h1>
+      <p class="w3-large">Devops | Distributed Applications | Problem Solving</p>
       <hr class="w3-border-grey" style="margin:auto;width:40%">
-      
-      <p class="w3-large w3-center">We are crafting something amazing.</p>
-      
-      <div class="w3-padding-large w3-xlarge">
-        <div class="countdown-box"><span id="days">00</span><br><span class="w3-small">Days</span></div>
-        <div class="countdown-box"><span id="hours">00</span><br><span class="w3-small">Hours</span></div>
-        <div class="countdown-box"><span id="minutes">00</span><br><span class="w3-small">Mins</span></div>
-        <div class="countdown-box"><span id="seconds">00</span><br><span class="w3-small">Secs</span></div>
+
+      <div class="w3-padding-16">
+        <p> Blablablaaa Blablablaaa Blablablaaa !! again Blablablaaa Blablablaaa Blablablaaa !!</p>
       </div>
 
-      <button onclick="document.getElementById('notifyModal').style.display='block'" 
-      class="w3-button w3-white w3-round w3-opacity w3-hover-opacity-off w3-large w3-margin-top">
-        Notify Me
-      </button>
+      <div class="w3-margin-top">
+        <a href="https://github.com/shijojoy220" class="profile-link" target="_blank">
+            <i class="fa fa-github"></i> GitHub Portfolio
+        </a>
+        <a href="https://www.linkedin.com/in/shijo-joy-892a4891" class="profile-link" target="_blank">
+            <i class="fa fa-linkedin"></i> LinkedIn Profile
+        </a>
+        <a href="mailto:shijojoy@gmail.com" class="profile-link">
+            <i class="fa fa-envelope"></i> Contact Me
+        </a>
+        <a href="your-resume.pdf" class="profile-link" target="_blank">
+            <i class="fa fa-file-pdf-o"></i> View Resume
+        </a>
+      </div>
+
     </div>
 
-    <div class="w3-display-bottomleft w3-padding-large">
-      <a href="#" class="w3-hover-text-grey"><i class="fa fa-facebook-official w3-xlarge w3-margin-right"></i></a>
-      <a href="#" class="w3-hover-text-grey"><i class="fa fa-instagram w3-xlarge w3-margin-right"></i></a>
-      <a href="#" class="w3-hover-text-grey"><i class="fa fa-twitter w3-xlarge"></i></a>
-    </div>
   </div>
 </div>
 
