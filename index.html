@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Your Name | Cover Letter & Profile</title>
+<title>Profile | DevOps & Infrastructure</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -32,6 +32,7 @@ body, html {height: 100%; margin: 0;}
 .content-card {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
     padding: 40px;
     border-radius: 15px;
     max-width: 600px;
@@ -49,20 +50,19 @@ body, html {height: 100%; margin: 0;}
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .profile-link:hover {
     background: #f1f1f1;
-    transform: scale(1.02);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-.profile-img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 3px solid white;
-    margin-bottom: 20px;
+.tagline {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 300;
 }
 </style>
 </head>
@@ -76,25 +76,25 @@ body, html {height: 100%; margin: 0;}
       <i class="fa fa-user-circle-o w3-jumbo"></i>
 
       <h1 class="w3-xxlarge"><b>Hi, I'm Shijo Joy</b></h1>
-      <p class="w3-large">Devops | Distributed Applications | Problem Solving</p>
+      <p class="w3-large tagline">Devops | Distributed Applications | Problem Solving</p>
       <hr class="w3-border-grey" style="margin:auto;width:40%">
 
-      <div class="w3-padding-16">
-        <p> Blablablaaa Blablablaaa Blablablaaa !! again Blablablaaa Blablablaaa Blablablaaa !!</p>
+      <div class="w3-padding-24">
+        <p class="w3-large">"Scaling Engineering Efficiency through Automation"</p>
       </div>
 
       <div class="w3-margin-top">
         <a href="https://github.com/shijojoy220" class="profile-link" target="_blank">
-            <i class="fa fa-github"></i> GitHub Portfolio
+            <i class="fa fa-github w3-margin-right"></i> GitHub Portfolio
         </a>
         <a href="https://www.linkedin.com/in/shijo-joy-892a4891" class="profile-link" target="_blank">
-            <i class="fa fa-linkedin"></i> LinkedIn Profile
+            <i class="fa fa-linkedin w3-margin-right"></i> LinkedIn Profile
         </a>
-        <a href="mailto:shijojoy@gmail.com" class="profile-link">
-            <i class="fa fa-envelope"></i> Contact Me
+        <a href="mailto:shijojoy220@gmail.com" class="profile-link">
+            <i class="fa fa-envelope w3-margin-right"></i> Contact Me
         </a>
-        <a href="your-resume.pdf" class="profile-link" target="_blank">
-            <i class="fa fa-file-pdf-o"></i> View Resume
+        <a href="myresume.pdf" class="profile-link" target="_blank">
+            <i class="fa fa-file-pdf-o w3-margin-right"></i> View Resume
         </a>
       </div>
 
@@ -102,53 +102,6 @@ body, html {height: 100%; margin: 0;}
 
   </div>
 </div>
-
-<div id="notifyModal" class="w3-modal">
-  <div class="w3-modal-content w3-animate-zoom w3-card-4 w3-round-large" style="max-width:500px">
-    <header class="w3-container w3-center w3-padding-32 w3-teal w3-round-top-large"> 
-      <span onclick="document.getElementById('notifyModal').style.display='none'" 
-      class="w3-button w3-display-topright w3-hover-red w3-round-top-right">&times;</span>
-      <h2 class="w3-wide"><i class="fa fa-envelope w3-margin-right"></i>NEWSLETTER</h2>
-    </header>
-    <div class="w3-container w3-padding-32">
-      <p>Join our mailing list to receive updates on our launch!</p>
-      <input class="w3-input w3-border w3-round" type="text" placeholder="Enter e-mail">
-      <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-round" 
-      onclick="document.getElementById('notifyModal').style.display='none'">SUBSCRIBE</button>
-    </div>
-  </div>
-</div>
-
-<script>
-// --- CONFIGURATION ---
-// Set the date we're counting down to
-var countDownDate = new Date("Dec 31, 2025 00:00:00").getTime();
-
-// --- LOGIC ---
-var x = setInterval(function() {
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
-
-  // Time calculations
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Output the result in the elements
-  document.getElementById("days").innerHTML = days;
-  document.getElementById("hours").innerHTML = hours;
-  document.getElementById("minutes").innerHTML = minutes;
-  document.getElementById("seconds").innerHTML = seconds;
-
-  // If the count down is over, write text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("days").innerHTML = "00";
-    // Optional: Replace the timer with a "We are Live!" message
-  }
-}, 1000);
-</script>
 
 </body>
 </html>
