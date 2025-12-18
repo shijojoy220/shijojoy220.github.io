@@ -103,5 +103,52 @@ body, html {height: 100%; margin: 0;}
   </div>
 </div>
 
+<div id="notifyModal" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom w3-card-4 w3-round-large" style="max-width:500px">
+    <header class="w3-container w3-center w3-padding-32 w3-teal w3-round-top-large"> 
+      <span onclick="document.getElementById('notifyModal').style.display='none'" 
+      class="w3-button w3-display-topright w3-hover-red w3-round-top-right">&times;</span>
+      <h2 class="w3-wide"><i class="fa fa-envelope w3-margin-right"></i>NEWSLETTER</h2>
+    </header>
+    <div class="w3-container w3-padding-32">
+      <p>Join our mailing list to receive updates on our launch!</p>
+      <input class="w3-input w3-border w3-round" type="text" placeholder="Enter e-mail">
+      <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-round" 
+      onclick="document.getElementById('notifyModal').style.display='none'">SUBSCRIBE</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// --- CONFIGURATION ---
+// Set the date we're counting down to
+var countDownDate = new Date("Dec 31, 2025 00:00:00").getTime();
+
+// --- LOGIC ---
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  // Time calculations
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Output the result in the elements
+  document.getElementById("days").innerHTML = days;
+  document.getElementById("hours").innerHTML = hours;
+  document.getElementById("minutes").innerHTML = minutes;
+  document.getElementById("seconds").innerHTML = seconds;
+
+  // If the count down is over, write text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("days").innerHTML = "00";
+    // Optional: Replace the timer with a "We are Live!" message
+  }
+}, 1000);
+</script>
+
 </body>
 </html>
