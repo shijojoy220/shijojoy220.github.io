@@ -1,107 +1,189 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Profile | DevOps & Infrastructure</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Shijo Joy | DevOps & Infrastructure</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/5258/5258217.png">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
-<style>
-body, h1, h2, h3, h4 {font-family: "Raleway", sans-serif}
-body, html {height: 100%; margin: 0;}
+    <style>
+        body, html {
+            height: 100%; margin: 0; 
+            font-family: "Raleway", sans-serif;
+            background-color: #020205;
+            overflow: hidden;
+        }
 
-.bgimg {
-  background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop');
-  min-height: 100%;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-}
+        /* --- BACKGROUND LAYERING --- */
+        #galaxy-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+        }
 
-.overlay {
-    background-color: rgba(0,0,0,0.7); 
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        /* The main Milky Way image from your reference */
+        .milky-way {
+            position: absolute;
+            top: -10%; left: -10%; 
+            width: 120%; height: 120%;
+            /* High-res version of your uploaded image style */
+            background: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2071&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+            filter: brightness(0.7) contrast(1.1);
+            animation: slow-pan 100s infinite linear;
+        }
 
-.content-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* Safari support */
-    padding: 40px;
-    border-radius: 15px;
-    max-width: 600px;
-    width: 90%;
-    border: 1px solid rgba(255,255,255,0.2);
-}
+        /* Dark overlay to ensure text is readable */
+        .vignette {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(0,0,0,0) 20%, rgba(0,0,0,0.8) 100%);
+            z-index: 1;
+        }
 
-.profile-link {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    background: white;
-    color: #333;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: 0.3s ease;
-}
+        /* Extra layer of animated stars for depth */
+        .star-layer {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            opacity: 0.3;
+            z-index: 2;
+            animation: twinkle 4s infinite alternate;
+        }
 
-.profile-link:hover {
-    background: #f1f1f1;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
+        @keyframes slow-pan {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(1deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
 
-.tagline {
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: 300;
-}
-</style>
+        @keyframes twinkle {
+            from { opacity: 0.2; }
+            to { opacity: 0.5; }
+        }
+
+        /* --- PROFILE CARD --- */
+        .main-content {
+            position: relative;
+            z-index: 10;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-card {
+            background: rgba(5, 5, 10, 0.5); /* Semi-transparent black */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 45px;
+            border-radius: 30px;
+            max-width: 460px;
+            width: 90%;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+        }
+
+        .profile-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.95);
+            color: #111;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .profile-link:hover {
+            transform: scale(1.05);
+            background: #4285f4;
+            color: white;
+            box-shadow: 0 0 20px rgba(66, 133, 244, 0.5);
+        }
+
+        .tech-icons { margin-top: 25px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .tech-icons i { font-size: 2rem; margin: 0 12px; opacity: 0.8; transition: 0.3s; color: white; }
+        .tech-icons i:hover { color: #4285f4; transform: scale(1.1); opacity: 1; }
+
+        .gemini-icon { width: 18px; vertical-align: middle; margin-bottom: 2px; }
+        .footer-text { font-size: 0.75rem; color: #888; margin-top: 30px; }
+        
+        .status-dot {
+            height: 10px; width: 10px; background-color: #2ecc71;
+            border-radius: 50%; display: inline-block; margin-right: 8px;
+            box-shadow: 0 0 10px #2ecc71;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="bgimg w3-text-white">
-  <div class="overlay">
-    
-    <div class="w3-center content-card w3-animate-opacity">
-      <i class="fa fa-user-circle-o w3-jumbo"></i>
-
-      <h1 class="w3-xxlarge"><b>Hi, I'm Shijo Joy</b></h1>
-      <p class="w3-large tagline">Devops | Distributed Applications | Problem Solving</p>
-      <hr class="w3-border-grey" style="margin:auto;width:40%">
-
-      <div class="w3-padding-24">
-        <p class="w3-large">"Scaling Engineering Efficiency through Automation"</p>
-      </div>
-
-      <div class="w3-margin-top">
-        <a href="https://github.com/shijojoy220" class="profile-link" target="_blank">
-            <i class="fa fa-github w3-margin-right"></i> GitHub Portfolio
-        </a>
-        <a href="https://www.linkedin.com/in/shijo-joy-892a4891" class="profile-link" target="_blank">
-            <i class="fa fa-linkedin w3-margin-right"></i> LinkedIn Profile
-        </a>
-        <a href="mailto:shijojoy220@gmail.com" class="profile-link">
-            <i class="fa fa-envelope w3-margin-right"></i> Contact Me
-        </a>
-        <a href="myresume.pdf" class="profile-link" target="_blank">
-            <i class="fa fa-file-pdf-o w3-margin-right"></i> View Resume
-        </a>
-      </div>
-
+    <div id="galaxy-container">
+        <div class="milky-way"></div>
+        <div class="vignette"></div>
+        <div class="star-layer"></div>
     </div>
 
-  </div>
-</div>
+    <main class="main-content">
+        <div class="content-card w3-animate-zoom">
+
+            <h1 class="w3-xxlarge w3-text-white" style="letter-spacing: 3px;"><b>SHIJO JOY</b></h1>
+            <p style="color: #1084f0; letter-spacing: 6px; font-weight: 350; text-transform: uppercase; font-size: 0.8rem;">
+                DevOps | Automation | Cloud
+            </p>
+
+            <hr style="width: 30%; margin: 20px auto; opacity: 0.2;">
+
+            <div class="w3-margin-top">
+                <a href="https://github.com/shijojoy220" class="profile-link" target="_blank">
+                    <i class="fab fa-github w3-margin-right"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/shijo-joy-892a4891" class="profile-link" target="_blank">
+                    <i class="fab fa-linkedin w3-margin-right"></i> LinkedIn
+                </a>
+                <a href="mailto:shijojoy220@gmail.com" class="profile-link">
+                    <i class="fas fa-envelope w3-margin-right"></i> Contact Me
+                </a>
+                <a href="myresume.pdf" class="profile-link" target="_blank">
+                    <i class="fas fa-file-pdf w3-margin-right"></i> View Resume
+                </a>
+            </div>
+
+            <div class="tech-icons">
+                <i class="devicon-docker-plain" title="Docker"></i>
+                <i class="devicon-kubernetes-plain" title="Kubernetes"></i>
+                <i class="devicon-terraform-plain" title="Terraform"></i>
+                <i class="devicon-amazonwebservices-plain-wordmark" title="AWS"></i>
+                <i class="devicon-azure-plain" title="Azure"></i>
+                <i class="devicon-linux-plain" title="Linux"></i>
+            </div>
+
+            <div class="footer-text">
+                <p>Built with <i class="fa fa-code"></i> and 
+                    <svg class="gemini-icon" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L14.85 9.15L22 12L14.85 14.85L12 22L9.15 14.85L2 12L9.15 9.15L12 2Z" fill="url(#gemini-grad)"/>
+                        <defs>
+                            <linearGradient id="gemini-grad" x1="2" y1="12" x2="22" y2="12" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#4285f4" />
+                                <stop offset="100%" stop-color="#9b72cb" />
+                            </linearGradient>
+                        </defs>
+                    </svg> 
+                    Gemini AI
+                </p>
+            </div>
+        </div>
+    </main>
 
 </body>
 </html>
